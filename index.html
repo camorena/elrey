@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose María Triana — "El Rey" · 1924–2016</title>
+<meta name="description" content="Homenaje a Jose María Triana 'El Rey' (1924–2016). Un tributo de amor de su familia, celebrando su legado de fuerza, paciencia y amor incondicional.">
+<meta property="og:title" content="Jose María Triana — 'El Rey' · 1924–2016">
+<meta property="og:description" content="Homenaje a nuestro maravilloso padre y esposo. Su legado de fuerza, berraquera, paciencia y amor vive en cada uno de nosotros.">
+<meta property="og:image" content="images/jose-mara-triana.jpg">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="images/jose-mara-triana.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='30' y='30' width='40' height='40' rx='2' fill='%23C5A55A' transform='rotate(45 50 50)'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/*═══════════════════════════════════════
+  DESIGN SYSTEM
+  Elegant memorial / tribute template
+  Reusable for photography portfolios,
+  family tributes, or editorial layouts
+═══════════════════════════════════════*/
+
+/*═══ RESET & TOKENS ═══*/
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* Palette — warm neutrals with gold accent */
+  --ivory:#F7F3ED;--cream:#FEFCF9;--gold:#C5A55A;--gold-light:#D4BC7C;--gold-pale:#EDE4CC;
+  --charcoal:#1A1A1A;--deep:#0A0A0A;--warm-gray:#6B6460;--soft-gray:#A39E98;--rose:#8B6F6F;
+
+  /* Spacing scale */
+  --gap:10px;
+  --section-y:clamp(4rem,10vw,8rem);
+  --section-x:clamp(1.5rem,6vw,4rem);
+
+  /* Type scale */
+  --fs-hero:clamp(1.8rem,5.5vw,4.2rem);
+  --fs-h2:clamp(1.6rem,3.8vw,2.6rem);
+  --fs-h3:clamp(1.1rem,2.5vw,1.7rem);
+  --fs-body:clamp(.92rem,1.6vw,1.05rem);
+  --fs-small:clamp(.75rem,1.3vw,.85rem);
+  --fs-label:.68rem;
+
+  /* Motion */
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-in-out:cubic-bezier(.45,0,.55,1);
+  --dur:.7s;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Lora',Georgia,serif;color:var(--charcoal);background:var(--deep);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+img{display:block;max-width:100%}
+
+/* Selection styling */
+::selection{background:rgba(197,165,90,.25);color:var(--charcoal)}
+
+/*═══ HERO ═══*/
+.hero{
+  position:relative;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--deep);overflow:hidden;padding:2rem 1rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 40%,rgba(197,165,90,.07),transparent 70%),
+    radial-gradient(ellipse 90% 70% at 25% 75%,rgba(139,111,111,.04),transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%,rgba(197,165,90,.03),transparent 50%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;
+  background:linear-gradient(transparent,var(--deep));
+}
+.hero-grain{
+  position:absolute;inset:0;opacity:.025;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:2.5rem;opacity:0;animation:fu 1.2s .3s var(--ease-out) forwards}
+
+.hero-portrait-wrap{
+  position:relative;z-index:1;
+  width:min(220px,50vw);height:min(300px,68vw);
+  opacity:0;animation:fs 1.6s .5s var(--ease-out) forwards;
+}
+.hero-portrait-wrap::before{
+  content:'';position:absolute;inset:-7px;
+  border-radius:min(110px,25vw) min(110px,25vw) 4px 4px;
+  border:1px solid rgba(197,165,90,.12);
+  transition:border-color .6s;
+}
+.hero-portrait-wrap:hover::before{border-color:rgba(197,165,90,.25)}
+.hero-portrait-wrap::after{
+  content:'';position:absolute;inset:0;
+  border-radius:min(110px,25vw) min(110px,25vw) 3px 3px;
+  box-shadow:inset 0 0 50px 20px var(--deep);
+  pointer-events:none;z-index:2;
+}
+.hero-portrait{
+  width:100%;height:100%;
+  border-radius:min(110px,25vw) min(110px,25vw) 3px 3px;
+  object-fit:cover;object-position:center 15%;
+  border:1.5px solid rgba(197,165,90,.3);
+  box-shadow:0 0 100px rgba(197,165,90,.1),0 0 200px rgba(197,165,90,.04);
+  filter:sepia(.15) saturate(.85) contrast(1.08) brightness(1.04);
+  position:relative;z-index:1;will-change:transform;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:var(--fs-hero);font-weight:300;
+  color:var(--ivory);letter-spacing:.12em;text-transform:uppercase;
+  margin-top:2rem;text-align:center;
+  opacity:0;animation:fu 1.2s .8s var(--ease-out) forwards;
+}
+.hero-nick{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(.9rem,2.5vw,1.4rem);
+  font-weight:300;font-style:italic;color:var(--gold);letter-spacing:.25em;
+  margin-top:.5rem;opacity:0;animation:fu 1.2s 1s var(--ease-out) forwards;
+}
+.hero-dates{
+  font-family:'Jost',sans-serif;font-size:var(--fs-small);font-weight:300;
+  color:var(--soft-gray);letter-spacing:.35em;
+  margin-top:1.2rem;opacity:0;animation:fu 1.2s 1.2s var(--ease-out) forwards;
+}
+.hero-cross{color:var(--gold);margin:0 .6rem}
+
+.hero-scroll{
+  position:absolute;bottom:2.5rem;display:flex;flex-direction:column;
+  align-items:center;gap:.5rem;text-decoration:none;
+  opacity:0;animation:fu 1.2s 2s var(--ease-out) forwards;
+}
+.hero-scroll span{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:var(--soft-gray);transition:color .3s}
+.hero-scroll:hover span{color:var(--gold)}
+.hero-scroll i{display:block;width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:pulse 2.5s ease-in-out infinite}
+
+/*═══ SECTION TRANSITIONS ═══*/
+.sec-fade{position:relative}
+.sec-fade::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:clamp(60px,8vw,120px);
+  background:linear-gradient(var(--deep),transparent);pointer-events:none;z-index:2;
+}
+
+/*═══ TRIBUTE ═══*/
+.tribute{
+  background:var(--cream);position:relative;
+  padding:var(--section-y) var(--section-x);
+}
+.tribute::before{
+  content:'\201C';font-family:'Cormorant Garamond',serif;
+  font-size:clamp(6rem,16vw,13rem);color:var(--gold-pale);
+  position:absolute;top:.2rem;left:4%;line-height:1;pointer-events:none;opacity:.7;
+}
+.tribute-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+
+.lbl{
+  font-family:'Jost',sans-serif;font-size:var(--fs-label);font-weight:500;
+  letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;
+}
+.tribute p{
+  font-size:var(--fs-body);line-height:2;color:var(--warm-gray);margin-bottom:1.4rem;
+}
+.tribute p:first-of-type::first-letter{
+  font-family:'Cormorant Garamond',serif;font-size:3.2rem;float:left;
+  line-height:.85;margin-right:.14rem;padding-top:.06rem;
+  color:var(--gold);font-weight:600;
+}
+.tribute-sig{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
+  color:var(--rose);margin-top:2.5rem;text-align:right;letter-spacing:.03em;
+}
+
+/*═══ DIVIDER ═══*/
+.dv{padding:2.8rem 0;display:flex;justify-content:center;align-items:center;gap:1.2rem}
+.dv--d{background:var(--deep)}.dv--l{background:var(--ivory)}
+.dv-line{display:block;width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+.dv-diamond{display:block;width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);opacity:.5;transition:opacity .4s}
+.dv:hover .dv-diamond{opacity:.9}
+
+/*═══ SECTION HEADINGS ═══*/
+.sh{text-align:center;margin-bottom:2.5rem;padding:0 1rem}
+.sh h2{font-family:'Cormorant Garamond',serif;font-size:var(--fs-h2);font-weight:300;letter-spacing:.06em}
+.sh h2.lt{color:var(--charcoal)}.sh h2.dk{color:var(--ivory)}
+.bg-w{background:var(--cream)}.bg-i{background:var(--ivory)}.bg-d{background:var(--deep)}
+.ps{padding:var(--section-y) 0}
+
+/*═══ LEGACY ═══*/
+.legacy{background:var(--deep);padding:var(--section-y) var(--section-x);text-align:center}
+.legacy h2{font-family:'Cormorant Garamond',serif;font-size:var(--fs-h2);font-weight:300;color:var(--ivory);letter-spacing:.06em;margin-bottom:2.5rem}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;max-width:880px;margin:0 auto}
+.lc{
+  padding:1.8rem 1rem;
+  border:1px solid rgba(197,165,90,.12);border-radius:3px;
+  transition:border-color .5s var(--ease-out),transform .5s var(--ease-out),box-shadow .5s var(--ease-out);
+  position:relative;overflow:hidden;
+}
+.lc::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(197,165,90,.04),transparent 70%);
+  opacity:0;transition:opacity .5s;
+}
+.lc:hover{border-color:rgba(197,165,90,.35);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.lc:hover::before{opacity:1}
+.lc h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--gold-light);margin-bottom:.4rem;position:relative}
+.lc p{font-family:'Jost',sans-serif;font-size:.73rem;font-weight:300;color:var(--soft-gray);line-height:1.65;position:relative}
+
+/*═══ VINTAGE FEATURE ═══*/
+.vf{background:var(--ivory);padding:var(--section-y) var(--section-x)}
+.vf-inner{max-width:880px;margin:0 auto;display:flex;gap:clamp(1.5rem,5vw,3rem);align-items:center}
+.vf-img{
+  flex:0 0 auto;width:clamp(180px,30vw,300px);border-radius:3px;
+  filter:saturate(.85) contrast(1.02);
+  box-shadow:0 20px 60px rgba(0,0,0,.12),0 4px 16px rgba(0,0,0,.06);
+  cursor:pointer;transition:filter .5s,box-shadow .5s,transform .5s var(--ease-out);
+}
+.vf-img:hover{filter:saturate(1);transform:translateY(-3px);box-shadow:0 24px 70px rgba(0,0,0,.16),0 6px 20px rgba(0,0,0,.08)}
+.vf-txt{flex:1}
+.vf-txt h3{
+  font-family:'Cormorant Garamond',serif;font-size:var(--fs-h3);font-weight:300;
+  color:var(--charcoal);margin-bottom:.8rem;letter-spacing:.02em;
+}
+.vf-txt p{font-family:'Lora',serif;font-size:clamp(.88rem,1.4vw,.95rem);line-height:1.95;color:var(--warm-gray)}
+
+/*═══════════════════════════════════════
+  GALLERY SYSTEM
+═══════════════════════════════════════*/
+.gw{max-width:1080px;margin:0 auto;padding:0 var(--gap)}
+.grow{display:grid;gap:var(--gap);margin-bottom:var(--gap);overflow:hidden}
+
+/* Column layouts */
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:1fr 1fr 1fr}
+.c13{grid-template-columns:1.3fr 1fr}
+.c31{grid-template-columns:1fr 1.3fr}
+.cml{grid-template-columns:1.4fr .75fr}
+.cmr{grid-template-columns:.75fr 1.4fr}
+.cp2{grid-template-columns:1fr 1fr;max-width:460px;margin-left:auto;margin-right:auto}
+.cp3{grid-template-columns:1fr 1fr 1fr;max-width:660px;margin-left:auto;margin-right:auto}
+
+/* Row heights */
+.grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(170px,23vw,320px)}
+.grow.cml,.grow.cmr{grid-auto-rows:clamp(190px,26vw,340px)}
+.grow.cp2,.grow.cp3{grid-auto-rows:clamp(210px,40vw,420px)}
+
+/* Gallery image */
+.gi{
+  width:100%;height:100%;object-fit:cover;display:block;
+  border-radius:3px;filter:saturate(.8) contrast(1.02);
+  transition:filter .5s var(--ease-out),transform .5s var(--ease-out);
+  cursor:pointer;position:relative;
+}
+.gi:hover{filter:saturate(1) contrast(1.05);transform:scale(1.008)}
+.gi-p{object-position:center 20%}
+
+/*═══ QUOTE ═══*/
+.fq{
+  background:var(--deep);position:relative;
+  padding:clamp(3rem,8vw,6rem) var(--section-x);text-align:center;
+}
+.fq::before,.fq::after{
+  content:'';position:absolute;left:50%;transform:translateX(-50%);
+  width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4;
+}
+.fq::before{top:0}.fq::after{bottom:0}
+.fq blockquote{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,2.4vw,1.5rem);
+  font-weight:300;font-style:italic;color:var(--ivory);line-height:1.9;
+  max-width:640px;margin:0 auto;opacity:.92;
+}
+.fq cite{
+  display:block;font-family:'Jost',sans-serif;font-size:.68rem;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+  margin-top:1.3rem;font-style:normal;
+}
+
+/*═══ FAMILIA ═══*/
+.fam{text-align:center}
+.fam-hero{max-width:920px;margin:0 auto;border-radius:4px;overflow:hidden;padding:0 var(--gap)}
+.fam-hero img{width:100%;height:auto;filter:saturate(.88) contrast(1.02);border-radius:3px;transition:filter .5s}
+.fam-hero:hover img{filter:saturate(1)}
+.fam-cap{margin-top:1.2rem;font-family:'Cormorant Garamond',serif;font-size:clamp(.88rem,1.6vw,1rem);font-style:italic;color:var(--warm-gray);letter-spacing:.03em}
+.fam-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-h2);font-weight:300;letter-spacing:.06em;margin-bottom:1rem;color:var(--charcoal)}
+.fam-desc{font-family:'Lora',serif;font-size:clamp(.88rem,1.5vw,.95rem);line-height:1.9;color:var(--warm-gray);max-width:520px;margin:0 auto 2.5rem;padding:0 1rem}
+
+/*═══ CLOSING ═══*/
+.closing{
+  background:var(--deep);text-align:center;position:relative;overflow:hidden;
+  padding:clamp(5rem,12vw,10rem) var(--section-x);
+}
+.closing::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%,rgba(197,165,90,.06),transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 70%,rgba(139,111,111,.03),transparent 60%);
+}
+.closing-portrait-wrap{
+  position:relative;
+  width:min(180px,42vw);height:min(245px,57vw);
+  margin:0 auto 2.2rem;z-index:1;
+}
+.closing-portrait-wrap::before{
+  content:'';position:absolute;inset:-7px;
+  border-radius:min(90px,21vw) min(90px,21vw) 4px 4px;
+  border:1px solid rgba(197,165,90,.08);
+}
+.closing-portrait-wrap::after{
+  content:'';position:absolute;inset:0;
+  border-radius:min(90px,21vw) min(90px,21vw) 3px 3px;
+  box-shadow:inset 0 0 45px 18px var(--deep);
+  pointer-events:none;z-index:2;
+}
+.closing-portrait{
+  width:100%;height:100%;
+  border-radius:min(90px,21vw) min(90px,21vw) 3px 3px;
+  object-fit:cover;object-position:center 15%;
+  border:1px solid rgba(197,165,90,.2);
+  filter:grayscale(.35) sepia(.2) saturate(.75) contrast(1.05) brightness(1.06);
+  opacity:.85;display:block;position:relative;z-index:1;
+  animation:glow 5s ease-in-out infinite;
+  box-shadow:0 0 60px rgba(197,165,90,.05);
+}
+.closing h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.2vw,2.4rem);font-weight:300;color:var(--ivory);letter-spacing:.08em;margin-bottom:.7rem;position:relative;z-index:1}
+.closing .dates{font-family:'Jost',sans-serif;font-size:var(--fs-small);font-weight:300;color:var(--gold);letter-spacing:.3em;margin-bottom:1.5rem;position:relative;z-index:1}
+.closing .msg{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:300;font-style:italic;color:var(--soft-gray);line-height:1.9;max-width:500px;margin:0 auto;position:relative;z-index:1}
+.closing-orn{margin-top:2.5rem;display:flex;justify-content:center;gap:.45rem;position:relative;z-index:1}
+.closing-orn span{width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.4}
+
+/*═══ FOOTER ═══*/
+footer{
+  background:var(--charcoal);padding:1.6rem 1rem;text-align:center;
+  border-top:1px solid rgba(197,165,90,.08);
+}
+footer p{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:300;color:var(--soft-gray);letter-spacing:.15em;opacity:.4}
+
+/*═══ LIGHTBOX ═══*/
+.lb{
+  position:fixed;inset:0;background:rgba(5,5,5,.97);z-index:1000;
+  display:none;justify-content:center;align-items:center;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:1rem;
+}
+.lb.on{display:flex}
+.lb img{max-width:92%;max-height:88vh;max-height:88dvh;object-fit:contain;border-radius:3px;animation:fs .3s var(--ease-out)}
+.lb-x{
+  position:absolute;top:1rem;right:1rem;width:38px;height:38px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;color:rgba(255,255,255,.7);font-size:.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:1001;
+  transition:all .3s var(--ease-out);
+}
+.lb-x:hover,.lb-x:focus-visible{background:rgba(255,255,255,.1);border-color:var(--gold);color:var(--gold);outline:none}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:50%;color:rgba(255,255,255,.6);font-size:1.3rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:1001;
+  transition:all .3s var(--ease-out);
+}
+.lb-nav:hover,.lb-nav:focus-visible{background:rgba(255,255,255,.08);border-color:var(--gold);color:var(--gold);outline:none}
+.lb-prev{left:1rem}
+.lb-next{right:1rem}
+
+/* Lightbox counter */
+.lb-counter{
+  position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  font-family:'Jost',sans-serif;font-size:.7rem;font-weight:300;
+  letter-spacing:.2em;color:rgba(255,255,255,.35);z-index:1001;
+}
+
+.skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--deep);padding:.5rem 1rem;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.1em;z-index:2000;border-radius:0 0 4px 4px;transition:top .2s}
+.skip-link:focus{top:0}
+
+/*═══ REVEAL ═══*/
+.rv{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease-out),transform var(--dur) var(--ease-out)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/*═══ SCROLL PROGRESS ═══*/
+.scroll-progress{position:fixed;top:0;left:0;width:0;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold) 10%,var(--gold-light) 90%,transparent);z-index:999;pointer-events:none}
+
+/*═══ BACK TO TOP ═══*/
+.btt{
+  position:fixed;bottom:1.8rem;right:1.8rem;width:42px;height:42px;border-radius:50%;
+  background:rgba(10,10,10,.9);border:1px solid rgba(197,165,90,.2);
+  color:var(--gold);font-size:.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:900;
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:all .4s var(--ease-out);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.btt.vis{opacity:1;transform:translateY(0);pointer-events:auto}
+.btt:hover,.btt:focus-visible{border-color:var(--gold);background:rgba(197,165,90,.1);outline:none}
+
+/*═══ STAGGER CHILDREN ═══*/
+.grow.vis .gi:nth-child(1){animation:fi .6s var(--ease-out) both}
+.grow.vis .gi:nth-child(2){animation:fi .6s .12s var(--ease-out) both}
+.grow.vis .gi:nth-child(3){animation:fi .6s .24s var(--ease-out) both}
+
+/*═══ LIGHTBOX CROSSFADE ═══*/
+.lb img{transition:opacity .3s var(--ease-out)}
+.lb img.fading{opacity:0}
+
+/*═══ KEYFRAMES ═══*/
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fs{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes fi{from{opacity:0;transform:scale(.97) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:.7}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(197,165,90,.06),0 0 80px rgba(197,165,90,.03)}50%{box-shadow:0 0 50px rgba(197,165,90,.15),0 0 120px rgba(197,165,90,.06)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/*═══════════════════════════════════════
+  RESPONSIVE
+═══════════════════════════════════════*/
+
+@media(max-width:900px){
+  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(150px,21vw,280px)}
+  .grow.cml,.grow.cmr{grid-auto-rows:clamp(170px,23vw,300px)}
+  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(190px,34vw,380px)}
+}
+
+@media(max-width:768px){
+  :root{--gap:8px}
+  .c3{grid-template-columns:1fr 1fr}
+  .c13,.c31{grid-template-columns:1fr 1fr}
+  .cp3{grid-template-columns:1fr 1fr;max-width:380px}
+  .cml,.cmr{grid-template-columns:1fr}
+  .grow.cml,.grow.cmr{grid-auto-rows:clamp(170px,42vw,300px)}
+  .vf-inner{flex-direction:column;text-align:center}
+  .vf-img{width:min(280px,68vw)}
+  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(140px,28vw,250px)}
+  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(190px,48vw,360px)}
+  .lb-nav{width:38px;height:38px;font-size:1rem}
+  .lb-prev{left:.6rem}.lb-next{right:.6rem}
+}
+
+@media(max-width:560px){
+  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(120px,32vw,220px)}
+  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(170px,52vw,320px)}
+}
+
+@media(max-width:420px){
+  :root{--gap:6px}
+  .c2,.c3,.c13,.c31,.cml,.cmr{grid-template-columns:1fr}
+  .cp2,.cp3{grid-template-columns:1fr;max-width:100%}
+  .grow.c2,.grow.c3,.grow.c13,.grow.c31,.grow.cml,.grow.cmr{grid-auto-rows:auto}
+  .grow .gi{height:auto;max-height:68vw}
+  .grow.cp2,.grow.cp3{grid-auto-rows:auto}
+  .grow.cp2 .gi,.grow.cp3 .gi{max-height:92vw}
+  .hero h1{letter-spacing:.06em}
+  .tribute p{text-align:left}
+  .lb-nav{display:none}
+}
+
+noscript .rv{opacity:1;transform:none}
+
+/*═══ PRINT ═══*/
+@media print{
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .hero{min-height:auto;padding:2rem 1rem}
+  .hero-grain,.hero-scroll,.hero::before,.hero::after,.lb,.scroll-progress,.btt,.skip-link,.sec-fade::before{display:none!important}
+  .hero-portrait-wrap{opacity:1!important}
+  .hero-portrait-wrap::before,.hero-portrait-wrap::after,.closing-portrait-wrap::before,.closing-portrait-wrap::after{display:none!important}
+  .hero-portrait,.closing-portrait{filter:none!important}
+  body{background:#fff;color:#000}
+  .hero,.closing,.fq,.legacy,.bg-d{background:#fff!important}
+  .hero h1,.closing h2,.legacy h2,.sh h2.dk{color:#000!important}
+  .hero-nick,.hero-dates,.closing .dates,.fq cite,.lbl{color:#666!important}
+  .closing-portrait,.hero-portrait{border-color:#999;animation:none!important}
+  .fq blockquote,.closing .msg{color:#333!important}
+  .lc{border-color:#ccc}
+  .lc h3{color:#333}
+  footer{background:#fff;border-top:1px solid #ccc}
+  footer p{color:#666;opacity:1}
+  img{filter:none!important}
+  .gi{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="sp"></div>
+<a class="skip-link" href="#tribute">Saltar al contenido</a>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0})" aria-label="Volver arriba">&#8593;</button>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-line"></div>
+  <div class="hero-portrait-wrap">
+    <img class="hero-portrait" src="images/jose-mara-triana.jpg" alt="Jose María Triana">
+  </div>
+  <h1>Jose María Triana</h1>
+  <p class="hero-nick">"El Rey"</p>
+  <p class="hero-dates">1924 <span class="hero-cross">&#10022;</span> 2016</p>
+  <a class="hero-scroll" href="#tribute" aria-label="Ir al homenaje"><span>Homenaje</span><i></i></a>
+</section>
+
+<!-- TRIBUTE -->
+<section class="tribute" id="tribute">
+  <div class="tribute-inner rv">
+    <p class="lbl">Homenaje a nuestro maravilloso padre y esposo</p>
+    <p>La persona m&#225;s importante en nuestras vidas, como padre y como esposo. Nuestro ejemplo de fuerza, dedicaci&#243;n y amor. Siempre estuviste ah&#237;, apoy&#225;ndonos en cada paso, en cada decisi&#243;n, gui&#225;ndonos con tus consejos y ofreci&#233;ndonos tu hombro en los momentos m&#225;s dif&#237;ciles.</p>
+    <p>Gracias a ti aprendimos el significado de la responsabilidad, la entrega a la familia y la importancia del cari&#241;o, el respeto y el amor incondicional. Siempre demostraste tanto amor que es dif&#237;cil describirlo.</p>
+    <p>Hace diez a&#241;os partiste de este mundo y aunque tu partida f&#237;sica dej&#243; un vac&#237;o enorme, imposible de llenar, en cada uno de tus hijos y tu esposa, dejaste un legado de fuerza, berraquera, paciencia, disciplina, protecci&#243;n y amor para toda tu familia y amigos.</p>
+    <p>Por esta raz&#243;n, hoy es nuestro deseo rendirte un homenaje, record&#225;ndote como te lo mereces.</p>
+    <p class="tribute-sig">Te amaremos por siempre &#8734;</p>
+  </div>
+</section>
+
+<div class="dv dv--d" role="separator"><span class="dv-line"></span><span class="dv-diamond"></span><span class="dv-line"></span></div>
+
+<!-- LEGACY -->
+<section class="legacy">
+  <div class="rv"><p class="lbl">Su legado</p><h2>Lo que nos dej&#243; para siempre</h2></div>
+  <div class="lgrid rv">
+    <div class="lc"><h3>Fuerza</h3><p>Nos ense&#241;&#243; a enfrentar la vida con valent&#237;a y determinaci&#243;n</p></div>
+    <div class="lc"><h3>Berraquera</h3><p>Esa garra y empuje que solo un colombiano de coraz&#243;n puede transmitir</p></div>
+    <div class="lc"><h3>Paciencia</h3><p>Su calma y sabidur&#237;a en los momentos m&#225;s dif&#237;ciles nos guiaron</p></div>
+    <div class="lc"><h3>Amor</h3><p>Un amor incondicional que llen&#243; cada rinc&#243;n de nuestros corazones</p></div>
+  </div>
+</section>
+
+<!-- VINTAGE -->
+<section class="vf">
+  <div class="vf-inner rv">
+    <img loading="lazy" class="vf-img" src="images/jose-mara-y-su-esposa-foto-de-juventud.jpg" alt="Jose Mar&#237;a y su esposa &#8212; foto de juventud" onclick="openLB(this)">
+    <div class="vf-txt">
+      <h3>Un amor de toda la vida</h3>
+      <p>Desde j&#243;venes caminaron juntos por la vida, construyendo un hogar lleno de cari&#241;o, respeto y dedicaci&#243;n. Esta imagen es testigo de una historia de amor que trascendi&#243; el tiempo y dej&#243; huella en cada uno de sus hijos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY 1: EN FAMILIA ═══ -->
+<section class="bg-w ps">
+  <div class="sh rv"><p class="lbl">Momentos que atesoramos</p><h2 class="lt">En familia</h2></div>
+  <div class="gw">
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/con-su-nieta.jpg" alt="Con su nieta" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/con-su-nieta-2.jpg" alt="Con su nieta" onclick="openLB(this)">
+    </div>
+    <div class="grow c13 rv">
+      <img loading="lazy" class="gi" src="images/reunin-familiar.jpg" alt="Reuni&#243;n familiar" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/compartiendo.jpg" alt="Compartiendo" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/paseo-en-familia.jpg" alt="Paseo en familia" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/con-su-familia.jpg" alt="Con su familia" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/juntos.jpg" alt="Juntos" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/familia-reunida.jpg" alt="Familia reunida" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/en-los-columpios.jpg" alt="En los columpios" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="fq">
+  <div class="rv">
+    <blockquote>Siempre estuviste ah&#237;, apoy&#225;ndonos en cada paso, en cada decisi&#243;n, gui&#225;ndonos con tus consejos y ofreci&#233;ndonos tu hombro en los momentos m&#225;s dif&#237;ciles.</blockquote>
+    <cite>&#8212; Tus hijos y tu esposa</cite>
+  </div>
+</section>
+
+<!-- ═══ GALLERY 2: CELEBRACIONES ═══ -->
+<section class="bg-i ps">
+  <div class="sh rv"><p class="lbl">Celebraciones y encuentros</p><h2 class="lt">Compartiendo juntos</h2></div>
+  <div class="gw">
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/celebracin.jpg" alt="Celebraci&#243;n" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/noche-en-familia.jpg" alt="Noche en familia" onclick="openLB(this)">
+    </div>
+    <div class="grow cmr rv">
+      <img loading="lazy" class="gi gi-p" src="images/retrato-de-pareja.jpg" alt="Retrato de pareja" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/reunin-en-la-ciudad.jpg" alt="Reuni&#243;n en la ciudad" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/en-familia.jpg" alt="En familia" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/recuerdo.jpg" alt="Recuerdo" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/momento.jpg" alt="Momento" onclick="openLB(this)">
+    </div>
+    <div class="grow c31 rv">
+      <img loading="lazy" class="gi" src="images/recuerdo-familiar.jpg" alt="Recuerdo familiar" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/con-amigos.jpg" alt="Con amigos" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/con-su-nieta-beb.jpg" alt="Con su nieta beb&#233;" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/con-la-familia.jpg" alt="Con la familia" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<div class="dv dv--d" role="separator"><span class="dv-line"></span><span class="dv-diamond"></span><span class="dv-line"></span></div>
+
+<!-- ═══ GALLERY 3: RETRATOS ═══ -->
+<section class="bg-d ps">
+  <div class="sh rv"><p class="lbl">Retratos y momentos especiales</p><h2 class="dk">Su esencia en cada imagen</h2></div>
+  <div class="gw">
+    <div class="grow cp3 rv">
+      <img loading="lazy" class="gi gi-p" src="images/familia-triana-joven.jpg" alt="Familia Triana joven" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/retrato-con-sombrero.jpg" alt="Retrato con sombrero" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/retrato.jpg" alt="Retrato" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/reunin.jpg" alt="Reuni&#243;n" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/familia.jpg" alt="Familia" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/celebracin-2.jpg" alt="Celebraci&#243;n" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/juntos-2.jpg" alt="Juntos" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/compartiendo-2.jpg" alt="Compartiendo" onclick="openLB(this)">
+    </div>
+    <div class="grow cml rv">
+      <img loading="lazy" class="gi" src="images/con-sus-hijos.jpg" alt="Con sus hijos" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/con-su-nieto.jpg" alt="Con su nieto" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/familia-2.jpg" alt="Familia" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/momento-2.jpg" alt="Momento" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/recuerdo-2.jpg" alt="Recuerdo" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<!-- FAMILIA HERO -->
+<section class="bg-w ps fam">
+  <div class="rv">
+    <p class="lbl">Familia Triana</p>
+    <h2 class="fam-title">Juntos por siempre</h2>
+    <p class="fam-desc">El amor que sembraste sigue floreciendo en cada uno de nosotros. Tu familia es tu legado m&#225;s grande.</p>
+  </div>
+  <div class="fam-hero rv"><img loading="lazy" src="images/familia-triana-reunida.jpg" alt="Familia Triana reunida"></div>
+  <p class="fam-cap rv">La Familia Triana &#8212; unidos por su amor</p>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-portrait-wrap rv">
+    <img loading="lazy" class="closing-portrait" src="images/jose-mara-triana-2.jpg" alt="Jose Mar&#237;a Triana">
+  </div>
+  <h2 class="rv">Jose Mar&#237;a Triana</h2>
+  <p class="dates rv">1924 <span style="color:var(--gold)">&#10022;</span> 2016</p>
+  <p class="msg rv">Tu recuerdo vive en cada uno de nosotros.<br>Tu amor es eterno. Tu legado, imborrable.<br>Siempre en nuestros corazones, Pap&#225;.</p>
+  <div class="closing-orn rv"><span></span><span></span><span></span></div>
+</section>
+
+</main>
+
+<footer><p>Homenaje a Jose Mar&#237;a Triana &#8220;El Rey&#8221; &#183; Con todo el amor de su familia &#183; 2026</p></footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+  <button class="lb-nav lb-prev" onclick="navLB(-1)" aria-label="Imagen anterior">&#8249;</button>
+  <button class="lb-nav lb-next" onclick="navLB(1)" aria-label="Imagen siguiente">&#8250;</button>
+  <button class="lb-x" onclick="closeLB()" aria-label="Cerrar">&#10005;</button>
+  <img id="lbi" src="" alt="" onclick="event.stopPropagation()">
+  <div class="lb-counter" id="lbc"></div>
+</div>
+
+<script>
+/* Scroll-reveal */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* Scroll progress + back-to-top + parallax */
+const sp=document.getElementById('sp');
+const btt=document.getElementById('btt');
+const heroPortrait=document.querySelector('.hero-portrait-wrap');
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let ticking=false;
+
+window.addEventListener('scroll',()=>{
+  if(!ticking){
+    requestAnimationFrame(()=>{
+      const h=document.documentElement.scrollHeight-window.innerHeight;
+      const pct=h>0?(window.scrollY/h)*100:0;
+      sp.style.width=pct+'%';
+      btt.classList.toggle('vis',window.scrollY>600);
+      if(!prefersReduced&&heroPortrait){
+        const y=Math.min(window.scrollY*.25,100);
+        heroPortrait.style.transform='translateY('+y+'px)';
+      }
+      ticking=false;
+    });
+    ticking=true;
+  }
+},{passive:true});
+
+/* Lightbox */
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc');
+const allImages=[...document.querySelectorAll('.gi,.vf-img')];
+let currentIdx=-1;
+
+function updateCounter(){lbc.textContent=(currentIdx+1)+' / '+allImages.length}
+
+function openLB(i){
+  currentIdx=allImages.indexOf(i);
+  lbi.src=i.src;
+  lbi.alt=i.alt;
+  updateCounter();
+  lb.classList.add('on');
+  document.body.style.overflow='hidden';
+  document.body.style.position='fixed';
+  document.body.style.width='100%';
+  document.body.dataset.scrollY=window.scrollY;
+  document.body.style.top=-window.scrollY+'px';
+  lb.querySelector('.lb-x').focus();
+}
+function closeLB(){
+  lb.classList.remove('on');
+  document.body.style.overflow='';
+  document.body.style.position='';
+  document.body.style.width='';
+  document.body.style.top='';
+  window.scrollTo(0,parseInt(document.body.dataset.scrollY||'0'));
+  if(currentIdx>=0)allImages[currentIdx].focus();
+}
+function navLB(dir){
+  if(allImages.length===0)return;
+  currentIdx=(currentIdx+dir+allImages.length)%allImages.length;
+  lbi.classList.add('fading');
+  setTimeout(()=>{
+    lbi.src=allImages[currentIdx].src;
+    lbi.alt=allImages[currentIdx].alt;
+    updateCounter();
+    lbi.onload=()=>{lbi.classList.remove('fading');lbi.onload=null};
+  },250);
+}
+
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')closeLB();
+  else if(e.key==='ArrowLeft')navLB(-1);
+  else if(e.key==='ArrowRight')navLB(1);
+  else if(e.key==='Tab'){
+    const focusable=lb.querySelectorAll('button');
+    const first=focusable[0],last=focusable[focusable.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
+
+/* Touch swipe */
+let ts=0,tx=0;
+lb.addEventListener('touchstart',e=>{ts=e.changedTouches[0].clientY;tx=e.changedTouches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{
+  const dy=e.changedTouches[0].clientY-ts;
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dy)>80&&Math.abs(dy)>Math.abs(dx))closeLB();
+  else if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx>0?navLB(-1):navLB(1)}
+},{passive:true});
+</script>
+</body>
+</html>
