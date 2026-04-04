@@ -391,47 +391,63 @@ footer p{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:300;color:var
 .btt.vis{opacity:1;transform:translateY(0);pointer-events:auto}
 .btt:hover,.btt:focus-visible{border-color:var(--gold);background:rgba(197,165,90,.1);outline:none}
 
-/*═══ AUDIO PLAYER ═══*/
+/*═══ AUDIO PLAYER — VINYL DISC ═══*/
 .audio-player{
   position:fixed;bottom:1.8rem;left:1.8rem;z-index:900;
-  display:flex;align-items:center;gap:.6rem;
+  display:flex;align-items:center;gap:.7rem;
   opacity:0;animation:fu 1s 2.5s var(--ease-out) forwards;
 }
 .audio-btn{
-  width:42px;height:42px;border-radius:50%;
-  background:rgba(10,10,10,.9);border:1px solid rgba(197,165,90,.2);
-  color:var(--gold);font-size:.85rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .4s var(--ease-out);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  width:52px;height:52px;border-radius:50%;
+  background:conic-gradient(from 0deg,#1a1a1a 0deg,#2a2a2a 30deg,#1a1a1a 60deg,#252525 90deg,#1a1a1a 120deg,#2a2a2a 150deg,#1a1a1a 180deg,#252525 210deg,#1a1a1a 240deg,#2a2a2a 270deg,#1a1a1a 300deg,#252525 330deg,#1a1a1a 360deg);
+  border:2px solid rgba(197,165,90,.25);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:border-color .4s var(--ease-out),box-shadow .4s;
   position:relative;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
 }
-.audio-btn:hover,.audio-btn:focus-visible{border-color:var(--gold);background:rgba(197,165,90,.1);outline:none}
-.audio-btn.playing::after{
-  content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:1px solid rgba(197,165,90,.2);
-  animation:audio-ring 2s ease-in-out infinite;
+.audio-btn::before{
+  content:'';position:absolute;width:14px;height:14px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:inset 0 0 3px rgba(0,0,0,.3);
+  z-index:2;transition:transform .3s;
 }
+.audio-btn::after{
+  content:'';position:absolute;inset:6px;border-radius:50%;
+  border:1px solid rgba(197,165,90,.08);
+  box-shadow:inset 0 0 0 4px rgba(197,165,90,.04),inset 0 0 0 8px rgba(197,165,90,.03);
+}
+.audio-btn:hover,.audio-btn:focus-visible{border-color:var(--gold);box-shadow:0 4px 25px rgba(197,165,90,.15);outline:none}
+.audio-btn.playing{animation:vinyl-spin 3s linear infinite}
+.audio-btn.paused{animation:vinyl-spin 3s linear infinite;animation-play-state:paused}
+
 .audio-label{
-  font-family:'Jost',sans-serif;font-size:.6rem;font-weight:300;
+  font-family:'Jost',sans-serif;font-size:.58rem;font-weight:300;
   letter-spacing:.15em;text-transform:uppercase;color:var(--soft-gray);
   opacity:0;transform:translateX(-5px);
   transition:opacity .4s,transform .4s var(--ease-out);
   white-space:nowrap;pointer-events:none;
+  line-height:1.5;
 }
+.audio-label strong{display:block;color:var(--gold);font-weight:400;letter-spacing:.2em;font-size:.62rem}
 .audio-player:hover .audio-label{opacity:1;transform:translateX(0)}
-.audio-bars{display:flex;align-items:center;gap:2px;height:14px}
-.audio-bars span{display:block;width:2px;background:var(--gold);border-radius:1px;transition:height .3s}
-.audio-bars span:nth-child(1){height:4px}.audio-bars span:nth-child(2){height:8px}.audio-bars span:nth-child(3){height:5px}.audio-bars span:nth-child(4){height:10px}
-.audio-btn.playing .audio-bars span{animation:bar .8s ease-in-out infinite alternate}
-.audio-btn.playing .audio-bars span:nth-child(1){animation-delay:0s}
-.audio-btn.playing .audio-bars span:nth-child(2){animation-delay:.15s}
-.audio-btn.playing .audio-bars span:nth-child(3){animation-delay:.3s}
-.audio-btn.playing .audio-bars span:nth-child(4){animation-delay:.45s}
-.audio-btn:not(.playing) .audio-bars span{height:3px}
 
-@keyframes bar{0%{height:3px}100%{height:14px}}
-@keyframes audio-ring{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.6;transform:scale(1.05)}}
+/* Tonearm */
+.audio-arm{
+  position:absolute;top:-6px;right:-2px;width:20px;height:2px;
+  background:linear-gradient(90deg,var(--gold),rgba(197,165,90,.4));
+  border-radius:1px;transform-origin:right center;
+  transform:rotate(25deg);transition:transform .6s var(--ease-out);
+  z-index:3;
+}
+.audio-arm::before{
+  content:'';position:absolute;right:-2px;top:-2px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);opacity:.6;
+}
+.audio-btn.playing .audio-arm{transform:rotate(0deg)}
+
+@keyframes vinyl-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /*═══ STAGGER CHILDREN ═══*/
 .grow.vis .gi:nth-child(1){animation:fi .6s var(--ease-out) both}
@@ -556,9 +572,9 @@ noscript .rv{opacity:1;transform:none}
 <!-- AUDIO PLAYER -->
 <div class="audio-player">
   <button class="audio-btn" id="audioBtn" aria-label="Reproducir El Rey" onclick="toggleAudio()">
-    <div class="audio-bars"><span></span><span></span><span></span><span></span></div>
+    <span class="audio-arm"></span>
   </button>
-  <span class="audio-label">El Rey &#8212; Vicente Fern&#225;ndez</span>
+  <span class="audio-label"><strong>El Rey</strong>Vicente Fern&#225;ndez</span>
 </div>
 <audio id="bgMusic" loop preload="none">
   <source src="audio/el-rey.m4a" type="audio/mp4">
@@ -845,15 +861,38 @@ const bgMusic=document.getElementById('bgMusic');
 const audioBtn=document.getElementById('audioBtn');
 bgMusic.volume=0.35;
 
+function startMusic(){
+  bgMusic.play().then(()=>{
+    audioBtn.classList.add('playing');
+    audioBtn.classList.remove('paused');
+  }).catch(()=>{});
+}
+
 function toggleAudio(){
   if(bgMusic.paused){
-    bgMusic.play().then(()=>{audioBtn.classList.add('playing')}).catch(()=>{});
+    startMusic();
   }else{
     bgMusic.pause();
     audioBtn.classList.remove('playing');
+    audioBtn.classList.add('paused');
   }
 }
-bgMusic.addEventListener('ended',()=>{audioBtn.classList.remove('playing')});
+
+/* Autoplay on first user interaction */
+let hasStarted=false;
+function autoStart(){
+  if(hasStarted)return;
+  hasStarted=true;
+  startMusic();
+  document.removeEventListener('click',autoStart);
+  document.removeEventListener('scroll',autoStart);
+  document.removeEventListener('touchstart',autoStart);
+  document.removeEventListener('keydown',autoStart);
+}
+document.addEventListener('click',autoStart,{once:false});
+document.addEventListener('scroll',autoStart,{once:false,passive:true});
+document.addEventListener('touchstart',autoStart,{once:false,passive:true});
+document.addEventListener('keydown',autoStart,{once:false});
 
 /* Touch swipe */
 let ts=0,tx=0;
