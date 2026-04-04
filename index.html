@@ -576,7 +576,7 @@ noscript .rv{opacity:1;transform:none}
   </button>
   <span class="audio-label"><strong>El Rey</strong>Vicente Fern&#225;ndez</span>
 </div>
-<audio id="bgMusic" loop preload="none">
+<audio id="bgMusic" loop preload="auto">
   <source src="audio/el-rey.m4a" type="audio/mp4">
 </audio>
 
@@ -878,21 +878,14 @@ function toggleAudio(){
   }
 }
 
-/* Autoplay on first user interaction */
-let hasStarted=false;
+/* Autoplay on first click/tap anywhere */
 function autoStart(){
-  if(hasStarted)return;
-  hasStarted=true;
   startMusic();
-  document.removeEventListener('click',autoStart);
-  document.removeEventListener('scroll',autoStart);
-  document.removeEventListener('touchstart',autoStart);
-  document.removeEventListener('keydown',autoStart);
+  document.removeEventListener('click',autoStart,true);
+  document.removeEventListener('touchend',autoStart,true);
 }
-document.addEventListener('click',autoStart,{once:false});
-document.addEventListener('scroll',autoStart,{once:false,passive:true});
-document.addEventListener('touchstart',autoStart,{once:false,passive:true});
-document.addEventListener('keydown',autoStart,{once:false});
+document.addEventListener('click',autoStart,true);
+document.addEventListener('touchend',autoStart,true);
 
 /* Touch swipe */
 let ts=0,tx=0;
