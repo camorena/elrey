@@ -238,7 +238,7 @@ img{display:block;max-width:100%}
   GALLERY SYSTEM
 ═══════════════════════════════════════*/
 .gw{max-width:1080px;margin:0 auto;padding:0 var(--gap)}
-.grow{display:grid;gap:var(--gap);margin-bottom:var(--gap);overflow:hidden}
+.grow{display:grid;gap:var(--gap);margin-bottom:var(--gap);overflow:hidden;align-items:center}
 
 /* Column layouts */
 .c2{grid-template-columns:1fr 1fr}
@@ -250,20 +250,14 @@ img{display:block;max-width:100%}
 .cp2{grid-template-columns:1fr 1fr;max-width:460px;margin-left:auto;margin-right:auto}
 .cp3{grid-template-columns:1fr 1fr 1fr;max-width:660px;margin-left:auto;margin-right:auto}
 
-/* Row heights */
-.grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(170px,23vw,320px)}
-.grow.cml,.grow.cmr{grid-auto-rows:clamp(190px,26vw,340px)}
-.grow.cp2,.grow.cp3{grid-auto-rows:clamp(210px,40vw,420px)}
-
-/* Gallery image */
+/* Gallery image — no cropping, show full content */
 .gi{
-  width:100%;height:100%;object-fit:cover;display:block;
+  width:100%;height:auto;display:block;
   border-radius:3px;filter:saturate(.8) contrast(1.02);
   transition:filter .5s var(--ease-out),transform .5s var(--ease-out);
   cursor:pointer;position:relative;
 }
 .gi:hover{filter:saturate(1) contrast(1.05);transform:scale(1.008)}
-.gi-p{object-position:center 20%}
 
 /*═══ QUOTE ═══*/
 .fq{
@@ -497,40 +491,22 @@ footer p{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:300;color:var
   RESPONSIVE
 ═══════════════════════════════════════*/
 
-@media(max-width:900px){
-  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(150px,21vw,280px)}
-  .grow.cml,.grow.cmr{grid-auto-rows:clamp(170px,23vw,300px)}
-  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(190px,34vw,380px)}
-}
-
 @media(max-width:768px){
   :root{--gap:8px}
   .c3{grid-template-columns:1fr 1fr}
   .c13,.c31{grid-template-columns:1fr 1fr}
   .cp3{grid-template-columns:1fr 1fr;max-width:380px}
   .cml,.cmr{grid-template-columns:1fr}
-  .grow.cml,.grow.cmr{grid-auto-rows:clamp(170px,42vw,300px)}
   .vf-inner{flex-direction:column;text-align:center}
   .vf-img{width:min(280px,68vw)}
-  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(140px,28vw,250px)}
-  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(190px,48vw,360px)}
   .lb-nav{width:38px;height:38px;font-size:1rem}
   .lb-prev{left:.6rem}.lb-next{right:.6rem}
-}
-
-@media(max-width:560px){
-  .grow.c2,.grow.c3,.grow.c13,.grow.c31{grid-auto-rows:clamp(120px,32vw,220px)}
-  .grow.cp2,.grow.cp3{grid-auto-rows:clamp(170px,52vw,320px)}
 }
 
 @media(max-width:420px){
   :root{--gap:6px}
   .c2,.c3,.c13,.c31,.cml,.cmr{grid-template-columns:1fr}
   .cp2,.cp3{grid-template-columns:1fr;max-width:100%}
-  .grow.c2,.grow.c3,.grow.c13,.grow.c31,.grow.cml,.grow.cmr{grid-auto-rows:auto}
-  .grow .gi{height:auto;max-height:68vw}
-  .grow.cp2,.grow.cp3{grid-auto-rows:auto}
-  .grow.cp2 .gi,.grow.cp3 .gi{max-height:92vw}
   .hero h1{letter-spacing:.06em}
   .tribute p{text-align:left}
   .lb-nav{display:none}
@@ -660,6 +636,23 @@ noscript .rv{opacity:1;transform:none}
   </div>
 </section>
 
+<!-- ═══ GALLERY: FOTOS DE JUVENTUD ═══ -->
+<section class="bg-i ps">
+  <div class="sh rv"><p class="lbl">Fotos de juventud</p><h2 class="lt">Los a&#241;os dorados</h2></div>
+  <div class="gw">
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi gi-p" src="images/retrato-de-joven.jpg" alt="Retrato de joven" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/retrato-caminando.jpg" alt="Retrato caminando" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/tarde-en-el-campo.jpg" alt="Tarde en el campo" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi gi-p" src="images/paseando-en-la-ciudad.jpg" alt="Paseando en la ciudad" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/paseando-con-hijo.jpg" alt="Paseando con su hijo" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/paseo-familiar.jpg" alt="Paseo familiar" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
 <!-- ═══ GALLERY 1: EN FAMILIA ═══ -->
 <section class="bg-w ps">
   <div class="sh rv"><p class="lbl">Momentos que atesoramos</p><h2 class="lt">En familia</h2></div>
@@ -680,6 +673,14 @@ noscript .rv{opacity:1;transform:none}
     <div class="grow c2 rv">
       <img loading="lazy" class="gi" src="images/familia-reunida.jpg" alt="Familia reunida" onclick="openLB(this)">
       <img loading="lazy" class="gi" src="images/en-los-columpios.jpg" alt="En los columpios" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/reunin.jpg" alt="Reuni&#243;n familiar" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/familia.jpg" alt="Familia" onclick="openLB(this)">
+    </div>
+    <div class="grow c13 rv">
+      <img loading="lazy" class="gi" src="images/celebracin-2.jpg" alt="Celebraci&#243;n en familia" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/recuerdo-2.jpg" alt="Celebrando a Colombia" onclick="openLB(this)">
     </div>
   </div>
 </section>
@@ -714,10 +715,6 @@ noscript .rv{opacity:1;transform:none}
       <img loading="lazy" class="gi" src="images/celebracin.jpg" alt="Celebraci&#243;n" onclick="openLB(this)">
       <img loading="lazy" class="gi" src="images/noche-en-familia.jpg" alt="Noche en familia" onclick="openLB(this)">
     </div>
-    <div class="grow cmr rv">
-      <img loading="lazy" class="gi gi-p" src="images/retrato-de-pareja.jpg" alt="Retrato de pareja" onclick="openLB(this)">
-      <img loading="lazy" class="gi" src="images/reunin-en-la-ciudad.jpg" alt="Reuni&#243;n en la ciudad" onclick="openLB(this)">
-    </div>
     <div class="grow c3 rv">
       <img loading="lazy" class="gi" src="images/en-familia.jpg" alt="En familia" onclick="openLB(this)">
       <img loading="lazy" class="gi" src="images/recuerdo.jpg" alt="Recuerdo" onclick="openLB(this)">
@@ -727,9 +724,83 @@ noscript .rv{opacity:1;transform:none}
       <img loading="lazy" class="gi" src="images/recuerdo-familiar.jpg" alt="Recuerdo familiar" onclick="openLB(this)">
       <img loading="lazy" class="gi" src="images/con-amigos.jpg" alt="Con amigos" onclick="openLB(this)">
     </div>
+    <div class="grow cmr rv">
+      <img loading="lazy" class="gi gi-p" src="images/retrato-de-pareja.jpg" alt="Retrato de pareja" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/reunin-en-la-ciudad.jpg" alt="Reuni&#243;n en la ciudad" onclick="openLB(this)">
+    </div>
     <div class="grow c2 rv">
       <img loading="lazy" class="gi" src="images/con-su-nieta-beb.jpg" alt="Con su nieta beb&#233;" onclick="openLB(this)">
       <img loading="lazy" class="gi" src="images/con-la-familia.jpg" alt="Con la familia" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/bailando.jpg" alt="Bailando" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/encuentro-con-amigos.jpg" alt="Encuentro con amigos" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi gi-p" src="images/bailando-en-navidad.jpg" alt="Bailando en Navidad" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/bailando-juntos.jpg" alt="Bailando juntos" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/bailando-en-familia.jpg" alt="Bailando en familia" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/familia-2.jpg" alt="En la boda de su hija" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/momento-2.jpg" alt="Bailando con su hija" onclick="openLB(this)">
+    </div>
+    <div class="grow c31 rv">
+      <img loading="lazy" class="gi" src="images/con-su-nieta-3.jpg" alt="Con su nieta" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/tola-y-maruja.jpg" alt="El d&#237;a que conoci&#243; a Tola y Maruja" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY: ABUELO CONSENTIDOR ═══ -->
+<section class="bg-w ps">
+  <div class="sh rv"><p class="lbl">Abuelo consentidor</p><h2 class="lt">Con sus nietos, su mayor alegr&#237;a</h2></div>
+  <div class="gw">
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/con-su-nieto-recien-nacido.jpg" alt="Con su nieto reci&#233;n nacido" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/conociendo-al-nieto.jpg" alt="Conociendo al nieto" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/selfie-con-bebe.jpg" alt="Con su nieto beb&#233;" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/jugando-con-bebe.jpg" alt="Jugando con beb&#233;" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/en-familia-con-bebe.jpg" alt="En familia con beb&#233;" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi gi-p" src="images/en-el-columpio.jpg" alt="En el columpio" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/paseando-con-nieto.jpg" alt="Paseando con su nieto" onclick="openLB(this)">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY: VIAJES Y AVENTURAS ═══ -->
+<section class="bg-d ps">
+  <div class="sh rv"><p class="lbl">Viajes y aventuras</p><h2 class="dk">Recorriendo el mundo juntos</h2></div>
+  <div class="gw">
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/en-suiza.jpg" alt="En Suiza" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/junto-al-lago.jpg" alt="Junto al lago" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/en-berna.jpg" alt="En Berna" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/pueblo-suizo.jpg" alt="Pueblo suizo" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/en-la-montana.jpg" alt="En la monta&#241;a" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/en-los-alpes.jpg" alt="En los Alpes" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/cima-nevada.jpg" alt="En la cima nevada" onclick="openLB(this)">
+    </div>
+    <div class="grow c31 rv">
+      <img loading="lazy" class="gi" src="images/en-la-nieve.jpg" alt="En la nieve" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/con-tola-y-maruja.jpg" alt="Con Tola y Maruja" onclick="openLB(this)">
+    </div>
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/en-boston-con-nietos.jpg" alt="En Boston con sus nietos" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/descanso-en-el-jardin.jpg" alt="Descanso en el jard&#237;n" onclick="openLB(this)">
+    </div>
+    <div class="grow c3 rv">
+      <img loading="lazy" class="gi" src="images/en-el-patio.jpg" alt="En el patio" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/de-compras.jpg" alt="De compras" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/en-la-playa.jpg" alt="En la playa" onclick="openLB(this)">
     </div>
   </div>
 </section>
@@ -740,28 +811,18 @@ noscript .rv{opacity:1;transform:none}
 <section class="bg-d ps">
   <div class="sh rv"><p class="lbl">Retratos y momentos especiales</p><h2 class="dk">Su esencia en cada imagen</h2></div>
   <div class="gw">
-    <div class="grow cp3 rv">
+    <div class="grow c3 rv">
       <img loading="lazy" class="gi gi-p" src="images/familia-triana-joven.jpg" alt="Familia Triana joven" onclick="openLB(this)">
       <img loading="lazy" class="gi gi-p" src="images/retrato-con-sombrero.jpg" alt="Retrato con sombrero" onclick="openLB(this)">
-      <img loading="lazy" class="gi gi-p" src="images/retrato.jpg" alt="Retrato" onclick="openLB(this)">
-    </div>
-    <div class="grow c2 rv">
-      <img loading="lazy" class="gi" src="images/reunin.jpg" alt="Reuni&#243;n" onclick="openLB(this)">
-      <img loading="lazy" class="gi" src="images/familia.jpg" alt="Familia" onclick="openLB(this)">
-    </div>
-    <div class="grow c3 rv">
-      <img loading="lazy" class="gi" src="images/celebracin-2.jpg" alt="Celebraci&#243;n" onclick="openLB(this)">
-      <img loading="lazy" class="gi gi-p" src="images/juntos-2.jpg" alt="Juntos" onclick="openLB(this)">
-      <img loading="lazy" class="gi" src="images/compartiendo-2.jpg" alt="Compartiendo" onclick="openLB(this)">
-    </div>
-    <div class="grow cml rv">
-      <img loading="lazy" class="gi" src="images/con-sus-hijos.jpg" alt="Con sus hijos" onclick="openLB(this)">
       <img loading="lazy" class="gi gi-p" src="images/con-su-nieto.jpg" alt="Con su nieto" onclick="openLB(this)">
     </div>
-    <div class="grow c3 rv">
-      <img loading="lazy" class="gi" src="images/familia-2.jpg" alt="Familia" onclick="openLB(this)">
-      <img loading="lazy" class="gi" src="images/momento-2.jpg" alt="Momento" onclick="openLB(this)">
-      <img loading="lazy" class="gi" src="images/recuerdo-2.jpg" alt="Recuerdo" onclick="openLB(this)">
+    <div class="grow c2 rv">
+      <img loading="lazy" class="gi" src="images/retrato.jpg" alt="Con sus nietos" onclick="openLB(this)">
+      <img loading="lazy" class="gi gi-p" src="images/juntos-2.jpg" alt="Juntos" onclick="openLB(this)">
+    </div>
+    <div class="grow c31 rv">
+      <img loading="lazy" class="gi" src="images/con-sus-hijos.jpg" alt="Con sus hijos" onclick="openLB(this)">
+      <img loading="lazy" class="gi" src="images/compartiendo-2.jpg" alt="Compartiendo en familia" onclick="openLB(this)">
     </div>
   </div>
 </section>
